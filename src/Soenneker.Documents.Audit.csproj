@@ -41,7 +41,7 @@
 
         <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All" />
 
-        <PackageReference Include="Soenneker.Documents.Document" Version="2.1.22" />
+        <PackageReference Include="Soenneker.Documents.Document" Version="2.1.27" />
 
         <PackageReference Include="Soenneker.Enums.EventType" Version="2.1.7" />
     </ItemGroup>
