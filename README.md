@@ -8,5 +8,5 @@
 ## Installation
 
 ```
-Install-Package Soenneker.Documents.Audit
+dotnet add package Soenneker.Documents.Audit
 ```
