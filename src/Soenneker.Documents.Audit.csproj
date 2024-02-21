@@ -43,6 +43,6 @@
 
         <PackageReference Include="Soenneker.Documents.Document" Version="2.1.519" />
 
-        <PackageReference Include="Soenneker.Enums.EventType" Version="2.1.139" />
+        <PackageReference Include="Soenneker.Enums.EventType" Version="2.1.140" />
     </ItemGroup>
 </Project>
