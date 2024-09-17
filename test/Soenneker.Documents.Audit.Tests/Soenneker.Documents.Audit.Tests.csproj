@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\src\Soenneker.Documents.Audit.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Documents.Audit.csproj" />
     </ItemGroup>
 
 </Project>
