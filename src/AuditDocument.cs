@@ -1,5 +1,4 @@
 ﻿using System.Text.Json.Serialization;
-using Ardalis.SmartEnum.SystemTextJson;
 using Newtonsoft.Json;
 using Soenneker.Enums.EventType;
 
@@ -16,7 +15,7 @@ public class AuditDocument : Document.Document
     /// </summary>
     [JsonPropertyName("partitionKey")]
     [JsonProperty("partitionKey")]
-    public override string PartitionKey { get; set; } = default!;
+    public override string PartitionKey { get; set; } = null!;
 
     [JsonPropertyName("entity")]
     [JsonProperty("entity")]
@@ -24,17 +23,15 @@ public class AuditDocument : Document.Document
 
     [JsonPropertyName("entityId")]
     [JsonProperty("entityId")]
-    public string EntityId { get; set; } = default!;
+    public string EntityId { get; set; } = null!;
 
     [JsonPropertyName("entityType")]
     [JsonProperty("entityType")]
-    public string EntityType { get; set; } = default!;
+    public string EntityType { get; set; } = null!;
 
     [JsonPropertyName("eventType")]
     [JsonProperty("eventType")]
-    [System.Text.Json.Serialization.JsonConverter(typeof(SmartEnumNameConverter<EventType, int>))]
-    [Newtonsoft.Json.JsonConverter(typeof(Ardalis.SmartEnum.JsonNet.SmartEnumNameConverter<EventType, int>))]
-    public EventType EventType { get; set; } = default!;
+    public EventType EventType { get; set; } = null!;
 
     [JsonPropertyName("userId")]
     [JsonProperty("userId")]
