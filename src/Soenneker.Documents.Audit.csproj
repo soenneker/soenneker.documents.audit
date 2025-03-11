@@ -36,7 +36,7 @@
         <None Include="..\README.md" Pack="true" PackagePath="\" />
         <None Include="..\LICENSE" Pack="true" PackagePath="\" />
         <None Include="..\icon.png" Pack="true" PackagePath="\" />
-        <PackageReference Include="Soenneker.Documents.Document" Version="3.0.2338" />
+        <PackageReference Include="Soenneker.Documents.Document" Version="3.0.2342" />
         <PackageReference Include="Soenneker.Enums.EventType" Version="3.0.621" />
     </ItemGroup>
 </Project>
