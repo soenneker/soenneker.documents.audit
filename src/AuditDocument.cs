@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 using Newtonsoft.Json;
-using Soenneker.Enums.EventType;
+using Soenneker.Enums.CrudEventTypes;
 
 namespace Soenneker.Documents.Audit;
 
@@ -31,7 +31,7 @@ public class AuditDocument : Document.Document
 
     [JsonPropertyName("eventType")]
     [JsonProperty("eventType")]
-    public EventType EventType { get; set; } = null!;
+    public CrudEventType EventType { get; set; } = null!;
 
     [JsonPropertyName("userId")]
     [JsonProperty("userId")]
