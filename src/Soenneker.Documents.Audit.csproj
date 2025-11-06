@@ -37,6 +37,6 @@
         <None Include="..\LICENSE" Pack="true" PackagePath="\" />
         <None Include="..\icon.png" Pack="true" PackagePath="\" />
         <PackageReference Include="Soenneker.Documents.Document" Version="4.0.2558" />
-        <PackageReference Include="Soenneker.Enums.CrudEventTypes" Version="4.0.6" />
+        <PackageReference Include="Soenneker.Enums.CrudEventTypes" Version="4.0.7" />
     </ItemGroup>
 </Project>
