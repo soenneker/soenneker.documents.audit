@@ -27,7 +27,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\src\Soenneker.Documents.Audit.csproj" />
+        <ProjectReference Include="..\..\src\Soenneker.Documents.Audit\Soenneker.Documents.Audit.csproj" />
     </ItemGroup>
 
     <ItemGroup>
