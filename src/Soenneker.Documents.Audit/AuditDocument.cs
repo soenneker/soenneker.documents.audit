@@ -12,22 +12,37 @@ namespace Soenneker.Documents.Audit;
 /// </remarks>
 public class AuditDocument : Document.Document
 {
+    /// <summary>
+    /// Gets or sets entity.
+    /// </summary>
     [JsonPropertyName("entity")]
     [JsonProperty("entity")]
     public object? Entity { get; set; }
 
+    /// <summary>
+    /// Gets or sets entity id.
+    /// </summary>
     [JsonPropertyName("entityId")]
     [JsonProperty("entityId")]
     public string EntityId { get; set; } = null!;
 
+    /// <summary>
+    /// Gets or sets entity type.
+    /// </summary>
     [JsonPropertyName("entityType")]
     [JsonProperty("entityType")]
     public string EntityType { get; set; } = null!;
 
+    /// <summary>
+    /// Gets or sets event type.
+    /// </summary>
     [JsonPropertyName("eventType")]
     [JsonProperty("eventType")]
     public CrudEventType EventType { get; set; } = null!;
 
+    /// <summary>
+    /// Gets or sets user id.
+    /// </summary>
     [JsonPropertyName("userId")]
     [JsonProperty("userId")]
     public string? UserId { get; set; }
