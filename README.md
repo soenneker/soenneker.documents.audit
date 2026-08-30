@@ -5,28 +5,43 @@
 
 # Soenneker.Documents.Audit
 
-A derivation of Document that specifically exists for audit purposes The PartitionKey of the AuditDocument is the Document Id of the target entity.
+Defines an audit-event document with entity, event, actor, and document metadata.
 
-## Install
+## Installation
 
 ```bash
 dotnet add package Soenneker.Documents.Audit
 ```
 
-## What you get
+## Usage
 
-- `AuditDocument` — A derivation of Document that specifically exists for audit purposes The PartitionKey of the AuditDocument is the Document Id of the target entity.
+```csharp
+using Soenneker.Documents.Audit;
+using Soenneker.Enums.CrudEventTypes;
 
-## API at a glance
+string entityId = "customer-42";
 
-| API | What it does | Result / important behavior |
-| --- | --- | --- |
-| `AuditDocument.Entity` | Gets or sets entity. | Gets or sets entity. |
-| `AuditDocument.EntityId` | Gets or sets entity id. | Gets or sets entity id. |
-| `AuditDocument.EntityType` | Gets or sets entity type. | Gets or sets entity type. |
-| `AuditDocument.EventType` | Gets or sets event type. | Gets or sets event type. |
-| `AuditDocument.UserId` | Gets or sets user id. | Gets or sets user id. |
+var audit = new AuditDocument
+{
+    DocumentId = Guid.NewGuid().ToString("N"),
+    PartitionKey = entityId,
+    CreatedAt = DateTimeOffset.UtcNow,
+    EntityId = entityId,
+    EntityType = "Customer",
+    EventType = CrudEventType.Update,
+    UserId = currentUserId,
+    Entity = new
+    {
+        Name = "Ada Lovelace",
+        Status = "Active"
+    }
+};
+```
 
-## Important behavior
+`DocumentId` identifies the audit event. `EntityId` identifies the affected entity. Set `PartitionKey` to `EntityId` when using the package’s intended partitioning convention; the class does not assign or validate that relationship automatically.
 
-- `AuditDocument`: >PartitionKey is the document Id of the target entity.
+Inherited document fields serialize as `id`, `partitionKey`, `createdAt`, and `modifiedAt`. Audit fields serialize as `entity`, `entityId`, `entityType`, `eventType`, and `userId` with both System.Text.Json and Newtonsoft.Json attributes.
+
+`Entity` is typed as `object` so callers can store a snapshot or change payload. On deserialization, System.Text.Json normally materializes unknown object values as `JsonElement`, while Newtonsoft.Json normally uses `JObject`. Use a known payload type or serializer-specific conversion when the snapshot must be read back as a concrete model.
+
+`EventType` uses `CrudEventType.Create`, `Read`, `Update`, or `Delete`. The model does not generate IDs, timestamps, or actor information; populate those values before persistence.

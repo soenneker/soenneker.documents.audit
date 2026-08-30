@@ -5,43 +5,41 @@ using Soenneker.Enums.CrudEventTypes;
 namespace Soenneker.Documents.Audit;
 
 /// <summary>
-/// A derivation of Document that specifically exists for audit purposes <para/>
-/// The PartitionKey of the AuditDocument is the Document Id of the target entity
+/// Represents an auditable change to an entity together with document metadata.
 /// </summary>
-/// <remarks>>PartitionKey is the document Id of the target entity
-/// </remarks>
+/// <remarks>Set <see cref="Document.Document.PartitionKey"/> to <see cref="EntityId"/> when audit events should be partitioned by target entity. This convention is not enforced by the model.</remarks>
 public class AuditDocument : Document.Document
 {
     /// <summary>
-    /// Gets or sets entity.
+    /// Gets or sets the entity snapshot or change payload associated with the event.
     /// </summary>
     [JsonPropertyName("entity")]
     [JsonProperty("entity")]
     public object? Entity { get; set; }
 
     /// <summary>
-    /// Gets or sets entity id.
+    /// Gets or sets the identifier of the affected entity.
     /// </summary>
     [JsonPropertyName("entityId")]
     [JsonProperty("entityId")]
     public string EntityId { get; set; } = null!;
 
     /// <summary>
-    /// Gets or sets entity type.
+    /// Gets or sets the application-defined type name of the affected entity.
     /// </summary>
     [JsonPropertyName("entityType")]
     [JsonProperty("entityType")]
     public string EntityType { get; set; } = null!;
 
     /// <summary>
-    /// Gets or sets event type.
+    /// Gets or sets the create, read, update, or delete event type.
     /// </summary>
     [JsonPropertyName("eventType")]
     [JsonProperty("eventType")]
     public CrudEventType EventType { get; set; } = null!;
 
     /// <summary>
-    /// Gets or sets user id.
+    /// Gets or sets the identifier of the user responsible for the event, if known.
     /// </summary>
     [JsonPropertyName("userId")]
     [JsonProperty("userId")]
