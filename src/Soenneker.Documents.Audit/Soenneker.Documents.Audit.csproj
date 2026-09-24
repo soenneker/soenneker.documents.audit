@@ -44,7 +44,7 @@
 
     <ItemGroup>
         <PackageReference Include="Soenneker.Documents.Document" Version="4.0.2727" />
-        <PackageReference Include="Soenneker.Enums.CrudEventTypes" Version="4.0.60" />
+        <PackageReference Include="Soenneker.Enums.CrudEventTypes" Version="4.0.61" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
