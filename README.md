@@ -40,8 +40,8 @@ var audit = new AuditDocument
 
 `DocumentId` identifies the audit event. `EntityId` identifies the affected entity. Set `PartitionKey` to `EntityId` when using the package’s intended partitioning convention; the class does not assign or validate that relationship automatically.
 
-Inherited document fields serialize as `id`, `partitionKey`, `createdAt`, and `modifiedAt`. Audit fields serialize as `entity`, `entityId`, `entityType`, `eventType`, and `userId` with both System.Text.Json and Newtonsoft.Json attributes.
+Inherited document fields serialize as `id`, `partitionKey`, `createdAt`, and `modifiedAt`. Audit fields serialize as `entity`, `entityId`, `entityType`, `eventType`, and `userId` with System.Text.Json attributes.
 
-`Entity` is typed as `object` so callers can store a snapshot or change payload. On deserialization, System.Text.Json normally materializes unknown object values as `JsonElement`, while Newtonsoft.Json normally uses `JObject`. Use a known payload type or serializer-specific conversion when the snapshot must be read back as a concrete model.
+`Entity` is typed as `object` so callers can store a snapshot or change payload. On deserialization, System.Text.Json normally materializes unknown object values as `JsonElement`. Use a known payload type or serializer-specific conversion when the snapshot must be read back as a concrete model.
 
 `EventType` uses `CrudEventType.Create`, `Read`, `Update`, or `Delete`. The model does not generate IDs, timestamps, or actor information; populate those values before persistence.
