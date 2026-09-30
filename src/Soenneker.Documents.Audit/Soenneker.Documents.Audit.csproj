@@ -43,8 +43,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Soenneker.Documents.Document" Version="4.0.2731" />
-        <PackageReference Include="Soenneker.Enums.CrudEventTypes" Version="4.0.62" />
+        <PackageReference Include="Soenneker.Documents.Document" Version="4.0.2732" />
+        <PackageReference Include="Soenneker.Enums.CrudEventTypes" Version="4.0.63" />
     </ItemGroup>
     <ItemGroup>
     </ItemGroup>
